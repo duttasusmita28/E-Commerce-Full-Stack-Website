@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Local Vibe</title>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+        <section id="header">
+            <a href="#"><img src="img/Websitelogo.png" class="logo" alt="" style="width: 100px; height: auto;"></a>
+
+            <div>
+                <ul id="navbar">
+                    <form onsubmit="return false;">
+                        <input type="text" id="searchBox" placeholder="What do you want?" onkeyup="searchProducts()">
+                    </form>                    
+                    <li><a class="active" href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="wishlist.html"><i class="far fa-heart"></i></a></li>
+                    <li><a href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
+                </ul>
+            </div>
+
+        </section>
+
+        <section id="hero">
+            <h4>Trade-in-Offer</h4>
+            <h2>Super value deals</h2>
+            <h1>On all products</h1>
+            <p>Save more with coupons & up to 70% off! </p>
+            <button>Shop Now</button>
+        </section>
+
+        <section id="feature" class=".section-p1">
+            <div class="fe-box">
+                <img src="img/features/f1.png" alt="">
+                <h6>Free Shipping</h6>
+            </div>
+
+            <div class="fe-box">
+                <img src="img/features/f2.png" alt="">
+                <h6>Online Order</h6>
+            </div>
+
+            <div class="fe-box">
+                <img src="img/features/f3.png" alt="">
+                <h6>Save Money</h6>
+            </div>
+
+            <div class="fe-box">
+                <img src="img/features/f4.png" alt="">
+                <h6>Promotions</h6>
+            </div>
+
+            <div class="fe-box">
+                <img src="img/features/f5.png" alt="">
+                <h6>Happy Sell</h6>
+            </div>
+
+            <div class="fe-box">
+                <img src="img/features/f6.png" alt="">
+                <h6>24/7 Support</h6>
+            </div>
+
+        </section>
+
+        <section id="product1" class=".section-p1">
+        <h2>Featured Products</h2>
+        <p>Newly Launched Products</p>
+        <div id="featured-products"></div>
+       
+        <div class="pro-container">
+            <div class="pro" onclick="window.location.href='product1.html';">
+                <img src="img/products/1.jpg" alt="">
+                <div class="des">
+                    <span>localvibe</span>
+                    <h5 class="product-title">Bamboo Cane Hanging Lampshade</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 class="price">₹500.00</h4>
+                </div>
+                <button class="add-to-wishlist" data-id="33">
+                    <i class="far fa-heart"></i>
+                </button>
+                <button class="add-to-cart" data-id="33">
+                    <i class="fal fa-shopping-cart"></i></button>
+            </div>
+
+            <div class="pro">
+                <img src="img/products/jewellery/3.jpg" alt="">
+                <div class="des"> 
+                    <span>localvibe</span>
+                    <h5 class="product-title">Tripura's Tradisional Jewellery</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 class="price">₹250.00</h4>
+                </div>
+                <button class="add-to-wishlist" data-id="13">
+                    <i class="far fa-heart"></i></button>
+                <button class="add-to-cart" data-id="13">
+                    <i class="fal fa-shopping-cart"></i></button>
+            </div>
+
+            <div class="pro" onclick="window.location.href='product2.html';">
+                <img src="img/products/19.jpg" alt="">
+                <div class="des">
+                    <span>localvibe</span>
+                    <h5 class="product-title">Window Bamboo Curtains</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 class="price">₹1000.00</h4>
+                </div>
+                <button class="add-to-wishlist" data-id="34">
+                    <i class="far fa-heart"></i></button>
+                <button class="add-to-cart" data-id="34">
+                    <i class="fal fa-shopping-cart"></i></button>
+            </div>
+
+            <div class="pro">
+                <img src="img/products/5.jpg" alt="">
+                <div class="des">
+                    <span>localvibe</span>
+                    <h5 class="product-title">Rinai Risa - Traditional Attire of Tripura</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 class="price">₹2000.00</h4>
+                </div>
+                <button class="add-to-wishlist" data-id="35">
+                    <i class="far fa-heart"></i></button>
+                <button class="add-to-cart" data-id="35">
+                    <i class="fal fa-shopping-cart"></i></button>
+            </div>
+
+            <div class="pro">
+                <img src="img/products/jewellery/6.jpg" alt="">
+                <div class="des">
+                    <span>localvibe</span>
+                    <h5 class="product-title">Tripura Coin Necklace</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 class="price">₹300.00</h4>
+                </div>
+                <button class="add-to-wishlist" data-id="5">
+                    <i class="far fa-heart"></i></button>
+                <button class="add-to-cart" data-id="5">
+                    <i class="fal fa-shopping-cart"></i></button>
+            </div>
+
+            <div class="pro">
+                <img src="img/products/10.jpg" alt="">
+                <div class="des">
+                    <span>localvibe</span>
+                    <h5 class="product-title">Wooden Water Bottle</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 class="price">₹700</h4>
+                </div>
+                <button class="add-to-wishlist" data-id="36">
+                    <i class="far fa-heart"></i></button>
+                <button class="add-to-cart" data-id="36">
+                    <i class="fal fa-shopping-cart"></i></button>
+            </div>
+
+            <div class="pro">
+                <img src="img/products/Furniture/12.jpg" alt="">
+                <div class="des">
+                    <span>localvibe</span>
+                    <h5 class="product-title">Bamboo Black Mudda Stools</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 class="price">₹1500.00</h4>
+                </div>
+                <button class="add-to-wishlist" data-id="17">
+                    <i class="far fa-heart"></i></button>
+                <button class="add-to-cart" data-id="17">
+                    <i class="fal fa-shopping-cart"></i></button>
+            </div>
+
+            <div class="pro">
+                <img src="img/products/jewellery/13.jpg" alt="">
+                <div class="des">
+                    <span>localvibe</span>
+                    <h5 class="product-title">Silver Coin Necklace</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 class="price">₹500</h4>
+                </div>
+                <button class="add-to-wishlist" data-id="8">
+                    <i class="far fa-heart"></i></button>
+                <button class="add-to-cart" data-id="8">
+                    <i class="fal fa-shopping-cart"></i></button>
+            </div>
+
+        </div>
+        
+       
+    </div>
+    </section>
+
+    <section id="banner" class="section-m1">
+        <h4>Repair Services</h4>
+        <h2>Up to <span>70% Off</span> - All Traditional Jewellery and Bamboo Cane Products</h2>
+        <button class="normal">Explore More</button>
+    </section>
+
+    <section id="product1" class=".section-p1">
+        <h2>New Arrivals</h2>
+        <p>Newly Launched Products</p>
+        <div class="pro-container">
+            <div class="pro">
+                <img src="img/products/2.jpg" alt="">
+                <div class="des">
+                    <span>localvibe</span>
+                    <h5 class="product-title">Cane Kulo/Kula</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 class="price">₹250.00</h4>
+                </div>
+                <button class="add-to-wishlist" data-id="37">
+                    <i class="far fa-heart"></i></button>
+                <button class="add-to-cart" data-id="37">
+                    <i class="fal fa-shopping-cart"></i></button>
+            </div>
+
+            <div class="pro">
+                <img src="img/products/7.jpg" alt="">
+                <div class="des">
+                    <span>localvibe</span>
+                    <h5 class="product-title">Cane hand fan</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 class="price">₹150.00</h4>
+                </div>
+                <button class="add-to-wishlist" data-id="38">
+                    <i class="far fa-heart"></i></button>
+                <button class="add-to-cart" data-id="38">
+                    <i class="fal fa-shopping-cart"></i></button>
+            </div>
+
+            <div class="pro">
+                <img src="img/products/jewellery/8.jpg" alt="">
+                <div class="des">
+                    <span>localvibe</span>
+                    <h5 class="product-title">Traditional Jewellery</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 class="price">₹300.00</h4>
+                </div>
+                <button class="add-to-wishlist" data-id="11">
+                    <i class="far fa-heart"></i></button>
+                <button class="add-to-cart" data-id="11">
+                    <i class="fal fa-shopping-cart"></i></button>
+            </div>
+
+            <div class="pro">
+                <img src="img/products/p1.png" alt="">
+                <div class="des">
+                    <span>localvibe</span>
+                    <h5 class="product-title">Cane Hair Stick</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 class="price">₹100.00</h4>
+                </div>
+                <button class="add-to-wishlist" data-id="39">
+                    <i class="far fa-heart"></i></button>
+                <button class="add-to-cart" data-id="39">
+                    <i class="fal fa-shopping-cart"></i></button>
+            </div>
+
+            <div class="pro">
+                <img src="img/products/Furniture/38.jpg" alt="">
+                <div class="des">
+                    <span>localvibe</span>
+                    <h5 class="product-title">Rattan Bamboo Round Chair</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 class="price">₹300.00</h4>
+                </div>
+                <button class="add-to-wishlist" data-id="20">
+                    <i class="far fa-heart"></i></button>
+                <button class="add-to-cart" data-id="20">
+                    <i class="fal fa-shopping-cart"></i></button>
+            </div>
+
+            <div class="pro">
+                <img src="img/products/Furniture/14.jpg" alt="">
+                <div class="des">
+                    <span>localvibe</span>
+                    <h5 class="product-title">Wooden Tea Table</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 class="price">₹1000.00</h4>
+                </div>
+                <button class="add-to-wishlist" data-id="18">
+                    <i class="far fa-heart"></i></button>
+                <button class="add-to-cart" data-id="18">
+                    <i class="fal fa-shopping-cart"></i></button>
+            </div>
+
+            <div class="pro">
+                <img src="img/products/jewellery/16.jpg" alt="">
+                <div class="des">
+                    <span>localvibe</span>
+                    <h5 class="product-title">Tradisional Jewellery</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 class="price">₹200.00</h4>
+                </div>
+                <button class="add-to-wishlist" data-id="15">
+                    <i class="far fa-heart"></i></button>
+                <button class="add-to-cart" data-id="15">
+                    <i class="fal fa-shopping-cart"></i></button>
+            </div>
+
+            <div class="pro">
+                <img src="img/products/17.jpg" alt="">
+                <div class="des">
+                    <span>localvibe</span>
+                    <h5 class="product-title">Cane Table Mat</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 class="price">₹500.00</h4>
+                </div>
+                <button class="add-to-wishlist" data-id="40">
+                    <i class="far fa-heart"></i></button>
+                <button class="add-to-cart" data-id="40">
+                    <i class="fal fa-shopping-cart"></i></button>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="sm-banner" class=".section-p1">
+         <div class="banner-box">
+            <h4>Crazy deals</h4>
+            <h2>Buy 1 get 1 free</h2>
+            <span>The best handicrafts products are on sale</span>
+            <button class="white">Learn More</button>
+         </div>
+         <div class="banner-box banner-box2">
+            <h4>Bamboo Cane Products</h4>
+            <h2>for decor your home</h2>
+            <span>The bamboo cane products are on sale</span>
+            <button class="white">Collection</button>
+         </div>
+    </section>
+
+    <section id="banner3">
+        <a href="jewellery.html" class="banner-link">
+        <div class="banner-box">
+            <h2>Traditional Jewellery</h2>
+            <h3>Upto -30% Off</h3>
+        </div>
+    </a>
+    <a href="furniture.html" class="banner-link">
+        <div class="banner-box banner-box2">
+            <h2>Furnitures</h2>
+            <h3>Upto -20% Off</h3>
+        </div>
+    </a> 
+    <a href="accessories.html" class="banner-link">   
+        <div class="banner-box banner-box3">
+            <h2>Accessories</h2>
+            <h3>Upto -50% Off</h3>
+        </div>
+    </a>
+    </section>
+
+    <section id="newsletter" class="section-p1" >
+        <div class="newstext">
+            <h4>Sign Up For Newsletters</h4>
+            <p>Get E-mail updates about our latest products and <span> special offers</span> </p>
+        </div>
+        <div class="form">
+             <input type="text" placeholder="Your email address">
+             <button class="normal">Sign Up</button>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="img/Websitelogo.png" alt="" style="width: 100px; height: auto;">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong>Agartala, Tripura</p>
+            <p><strong>Phone:</strong>+91 9678678830</p>
+            <p><strong>Hour:</strong>10:00 - 18:00, Mon - Sat</p>
+            <div class="follow">
+                <h4>Follow us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="auth.html">Sign In</a>
+            <a href="#" id="logout">Logout</a>
+            <a href="cart.html">View Cart</a>
+            <a href="wishlist.html">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="img/pay/app.jpg" alt="">
+                <img src="img/pay/play.jpg" alt="">
+            </div>
+            <p>Secured Payment Gateways</p>
+            <img src="img/pay/pay.png" alt="">
+        </div>
+    </footer>
+
+        <script src="searchbar.js"></script>    
+        <script src="wishlist.js"></script>
+        <script src="cart.js"></script>
+        <script src="auth.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+            console.log("🔄 Checking user session on homepage...");
+
+            fetch("http://127.0.0.1:5000/check-session", {
+                method: "GET",
+                credentials: "include"
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("🔍 Session Check on Homepage:", data);
+
+                if (!data.logged_in) {
+                    console.log("❌ User not logged in. Redirecting to login page...");
+                setTimeout(() => {
+                    window.location.replace("auth.html"); // ✅ Redirect after a delay to prevent looping
+                }, 500); 
+                } else {
+                    console.log("✅ User is logged in. Staying on homepage.");
+                }
+            })
+            .catch(error => {
+                console.error("⚠️ Error checking session on homepage:", error);
+                alert("Error connecting to the server. Please check backend.");
+        });
+    });    
+
+         // ✅ Fix Logout Button
+         document.addEventListener("DOMContentLoaded", function() {
+            console.log("🔄 Initializing logout button...");
+
+         const logoutBtn = document.getElementById("logout");
+        if (logoutBtn) {
+            logoutBtn.addEventListener("click", function(event) {
+                event.preventDefault(); // Prevent default link action
+
+                fetch("http://127.0.0.1:5000/logout", {  
+                    method: "POST",
+                    credentials: "include"
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("🔍 Logout Response:", data);
+                    if (data.success) {
+                        alert("✅ Logged out successfully! Redirecting to login page...");
+                        window.location.replace("auth.html");  // ✅ Redirect to login page
+                    }
+                })
+                .catch(error => console.error("⚠️ Logout error:", error));
+            });
+        } else {
+            console.error("❌ Logout button not found! Check index.html for correct ID.");
+        }
+    });
+        </script>
+       
+        
+    </body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Vibe</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="admin.css">
+<style>
+    table {
+      border-collapse: collapse;
+      width: 80%;
+      margin: 20px auto;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body></body>
+
+   <h2 style="text-align:center;">Products List</h2>
+<table id="productTable" border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Description</th>
+            <th>Seller ID</th>
+            <th>Seller Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Products will be inserted here -->
+    </tbody>
+</table>
+
+
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('http://127.0.0.1:5000/getproducts')
+        .then(response => response.json())
+        .then(products => {
+            const tableBody = document.querySelector('#productTable tbody');
+            tableBody.innerHTML = ''; // Clear old data
+
+            products.forEach(product => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td>${product.id}</td>
+                    <td>${product.name}</td>
+                    <td>${product.category}</td>
+                    <td>₹${product.price}</td>
+                    <td><img src="http://127.0.0.1:5000${product.image}" width="80" /></td>
+                    <td>${product.description}</td>
+                    <td>${product.seller_id}</td>
+                    <td>${product.seller_location}</td>
+                `;
+
+                tableBody.appendChild(row);
+            });
+        })
+        .catch(error => {
+            console.error('Error loading products:', error);
+        });
+});
+</script>
+
+</body>
+</html>

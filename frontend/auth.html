@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+       
+        /* Popup Container */
+        .auth-popup {
+            position: relative;
+            background: white;
+            padding: 30px 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center;
+        }
+
+        .auth-popup h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .form {
+            display: none;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form.active {
+            display: flex;
+        }
+
+        .form input {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form button:disabled {
+            background-color: #bbb;
+            cursor: not-allowed;
+        }
+
+        .toggle {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #007bff;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .toggle:hover {
+            color: #0056b3;
+        }
+
+        #password-strength {
+            font-size: 12px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .valid {
+            color: green;
+        }
+          /* Close Button */
+          .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff5a5f;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-popup" id="authPopup">
+        <button class="close-btn" id="closePopup">×</button>
+        <h1 id="form-title">Sign In</h1>
+    
+        <!-- Sign In Form -->
+        <form id="signinForm" class="form active">
+            <input type="email" id="signin-email" placeholder="Email" required>
+            <input type="password" id="signin-password" placeholder="Password" required>
+            <button type="submit">Sign In</button>
+        </form>
+
+        <!-- Sign Up Form -->
+        <form id="signupForm" class="form">
+            <input type="text" id="signup-name" placeholder="Name" required>
+            <input type="tel" id="signup-phone" placeholder="Phone Number" pattern="[0-9]{10}" required>
+            <input type="email" id="signup-email" placeholder="Email" required>
+            <input type="password" id="signup-password" placeholder="Password" required>
+            <input type="password" id="signup-reenter-password" placeholder="Re-enter Password" required>
+            <p id="password-strength" class="error"></p>
+            <button type="submit" disabled id="signup-btn">Sign Up</button>
+        </form>
+
+        <p id="form-toggle" class="toggle">Don't have an account? Sign Up</p>
+    </div>
+
+    <script>
+        // Toggle between forms
+        const formToggle = document.getElementById("form-toggle");
+        const signinForm = document.getElementById("signinForm");
+        const signupForm = document.getElementById("signupForm");
+        const formTitle = document.getElementById("form-title");
+        const popup = document.getElementById("authPopup");
+        const closePopup = document.getElementById("closePopup");
+
+        formToggle.addEventListener("click", () => {
+            const isSignInActive = signinForm.classList.contains("active");
+            signinForm.classList.toggle("active", !isSignInActive);
+            signupForm.classList.toggle("active", isSignInActive);
+            formTitle.textContent = isSignInActive ? "Sign Up" : "Sign In";
+            formToggle.textContent = isSignInActive
+                ? "Already have an account? Sign In"
+                : "Don't have an account? Sign Up";
+        });
+
+         // Close the popup
+         closePopup.addEventListener("click", () => {
+            popup.style.display = "none";
+        });
+
+        // Strong password validation for Sign Up
+        const passwordInput = document.getElementById("signup-password");
+        const reenterPasswordInput = document.getElementById("signup-reenter-password");
+        const passwordStrengthText = document.getElementById("password-strength");
+        const signupBtn = document.getElementById("signup-btn");
+
+        passwordInput.addEventListener("input", validateForm);
+        reenterPasswordInput.addEventListener("input", validateForm);
+
+        function validateForm() {
+            const password = passwordInput.value;
+            const reenterPassword = reenterPasswordInput.value;
+
+            if (password !== reenterPassword) {
+                passwordStrengthText.textContent = "Passwords do not match.";
+                passwordStrengthText.className = "error";
+                signupBtn.disabled = true;
+                return;
+            }
+
+            const strength = validatePassword(password);
+            if (strength.isValid) {
+                passwordStrengthText.textContent = "Strong password!";
+                passwordStrengthText.className = "valid";
+                signupBtn.disabled = false;
+            } else {
+                passwordStrengthText.textContent = strength.message;
+                passwordStrengthText.className = "error";
+                signupBtn.disabled = true;
+            }
+        }
+
+
+        function validatePassword(password) {
+            const minLength = 8;
+            const hasUpperCase = /[A-Z]/.test(password);
+            const hasLowerCase = /[a-z]/.test(password);
+            const hasNumber = /\d/.test(password);
+            const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+            if (password.length < minLength) return { isValid: false, message: "Password must be at least 8 characters." };
+            if (!hasUpperCase) return { isValid: false, message: "Password must contain at least one uppercase letter." };
+            if (!hasLowerCase) return { isValid: false, message: "Password must contain at least one lowercase letter." };
+            if (!hasNumber) return { isValid: false, message: "Password must contain at least one number." };
+            if (!hasSpecialChar) return { isValid: false, message: "Password must contain at least one special character." };
+
+            return { isValid: true, message: "" };
+        }
+
+        // Handle Sign In submission
+        signinForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById("signin-email").value;
+            const password = document.getElementById("signin-password").value;
+
+            
+        });
+
+        // Handle Sign Up submission
+    signupForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("signup-name").value;
+    const email = document.getElementById("signup-email").value;
+    const phone = document.getElementById("signup-phone").value;
+    const password = passwordInput.value;
+    const reenterPassword = reenterPasswordInput.value;
+
+    if (password !== reenterPassword) {
+        alert("Passwords do not match!");
+        return;
+    }
+
+    if (!/^[0-9]{10}$/.test(phone)) {
+        alert("Please enter a valid 10-digit phone number.");
+        return;
+    }
+
+    localStorage.setItem("user", JSON.stringify({ name, email, phone, password }));
+    localStorage.setItem("userLoggedIn", true);
+    
+    alert("Sign-up successful!");
+    window.location.href = "index.html"; // Redirect to home page
+});
+// session check
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("🔄 Checking user session on login page...");
+
+        fetch("http://127.0.0.1:5000/check-session", {
+            method: "GET",
+            credentials: "include"
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("🔍 Session Check Response:", data);
+
+            if (data.logged_in) {
+                console.log("✅ Already logged in. Redirecting to homepage...");
+                if (window.location.pathname !== "/frontend/index.html") {
+                    window.location.replace("index.html"); // ✅ Redirect only once
+                }
+            } else {
+                console.log("❌ No active session. User must log in.");
+            }
+        })
+        .catch(error => console.error("⚠️ Error checking session:", error));
+    });
+
+    </script>
+    <script src="auth.js"></script>
+</body>
+</html>
